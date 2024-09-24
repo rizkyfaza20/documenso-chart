@@ -5,11 +5,10 @@
 - MySQL / PostgreSQL Database
 - (Optional) Oauth2 such as Google, Github etc.
 
-
 ## Step 1: Install the Helm Chart
 1. Add the chart repository (if using a remote repository):
     ```sh
-    helm repo add my-repo 
+    helm repo add documenso-chart https://rizkyfaza20.github.io/documenso-chart
     ```
 2. Update the repository to get the latest charts:
     ```sh
@@ -17,28 +16,21 @@
     ```
 3. Install the chart:
     ```sh
-    helm install my-release /path/to/documenso-chart-<version>.tgz
+    helm install documenso /path/to/documenso-chart-<version>.tgz
     ```
     Replace `<version>` with the actual version number of the packaged chart.
 
-## Step 5: Verify the Installation
+## Step 2: Verify the Installation
 1. Check the status of the release:
     ```sh
-    helm status my-release
+    helm status documenso
     ```
 2. Verify the deployed resources in your Kubernetes cluster:
     ```sh
-    kubectl get all -l release=my-release
+    kubectl get all -l release=documenso
     ```
 
-## Step 6: Upgrade the Helm Chart (if needed)
-1. Make further modifications to the chart.
-2. Upgrade the release with the updated chart:
-    ```sh
-    helm upgrade my-release /path/to/documenso-chart-<version>.tgz
-    ```
-
-## Step 7: Uninstall the Helm Chart (if needed)
+## Step 3: Uninstall the Helm Chart (if needed)
 1. Uninstall the release:
     ```sh
     helm uninstall my-release
