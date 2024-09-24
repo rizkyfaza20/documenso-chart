@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  documenso:
+  - apiVersion: v2
+    appVersion: v1.7.0
+    created: "2024-09-24T12:00:22.786861+07:00"
+    description: A Helm chart Documenso for Kubernetes
+    digest: 28d496479912db6a93007ff9125579e7b2dd0cec1f1fed6a769e422b0b19e1c5
+    name: documenso
+    type: application
+    urls:
+    - documenso-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-09-24T12:00:22.785739+07:00"
