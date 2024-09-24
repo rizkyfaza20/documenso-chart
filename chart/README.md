@@ -1,30 +1,15 @@
-# Documenso Chart
+# Documenso Chart (unofficial)
 
 ## Prerequisites
 - Ensure you have Helm installed. If not, follow the [Helm installation guide](https://helm.sh/docs/intro/install/).
+- MySQL / PostgreSQL Database
+- (Optional) Oauth2 such as Google, Github etc.
 
-## Step 1: Update the Helm Chart
-1. Navigate to the chart directory:
-    ```
-    git clone https://github.com/rizkyfaza20/documenso-chart.git
-    cd documenso-chart
-    ```
-2. Open the `Chart.yaml` file and update the version number and other metadata as needed.
 
-## Step 2: Modify the Helm Chart
-1. Edit the `values.yaml` file to update the default configuration values.
-2. Modify the templates in the `templates` directory to change the Kubernetes resources as needed.
-
-## Step 3: Package the Helm Chart
-1. Package the chart to create a `.tgz` file:
-    ```sh
-    helm package .
-    ```
-
-## Step 4: Install the Helm Chart
+## Step 1: Install the Helm Chart
 1. Add the chart repository (if using a remote repository):
     ```sh
-    helm repo add my-repo https://example.com/charts
+    helm repo add my-repo 
     ```
 2. Update the repository to get the latest charts:
     ```sh
@@ -62,3 +47,4 @@
 ## Additional Resources
 - [Helm Documentation](https://helm.sh/docs/)
 - [Kubernetes Documentation](https://kubernetes.io/docs/)
+- [Documenso Official Page](https://documenso.com)

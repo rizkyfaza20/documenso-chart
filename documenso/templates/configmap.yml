@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata: 
-    name: cm-{{ include "documenso.fullname" . }}-app
-data:
-    {{- with .Values.documenso.cm -}}
-        {{- toYaml . | nindent 2 -}}
-    {{- end -}}
