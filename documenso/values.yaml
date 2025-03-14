@@ -1,5 +1,7 @@
 documenso:
 
+  certPassword: ""
+
   podAnnotations: {}
 
   podLabels: {}
@@ -13,7 +15,7 @@ documenso:
     repository: documenso/documenso
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "latest"
+    tag: ""
 
   cm:
     # ConfigMap entries
@@ -84,6 +86,12 @@ documenso:
     httpGet:
       path: /
       port: http
+
+  persistence:
+    enabled: false
+    storageClass: ""
+    accessMode: ReadWriteOnce
+    size: 1Gi
 
   # Additional volumes on the output Deployment definition.
   volumes: []

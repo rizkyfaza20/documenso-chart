@@ -1,0 +1,15 @@
+{{- if .Values.documenso.persistence.enabled }}
+{{- end }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "documenso.fullname" . }}-pvc
+  labels:
+    app: {{ include "documenso.name" . }}
+spec:
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+        storage: {{ .Values.documenso.persistence.size }}
+    storageClassName: {{ .Values.documenso.persistence.storageClass }}    

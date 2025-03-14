@@ -23,6 +23,40 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
+      volumes:
+        - name: cert-volume
+          emptyDir: {}
+
+      initContainers:
+        - name: cert-generator
+          image: alpine-latest
+          command:
+            - sh
+            - -c
+            - |
+              apk add --no-cache openssl &&
+              mkdir -p /certs &&
+              echo "Generating CA certificate..." &&
+              openssl req -x509 -newkey rsa:4096 -keyout /certs/ca-key.pem -out /certs/ca-cert.pem -days 365 -nodes -subj "/CN=Documenso CA" &&
+
+              echo "Generating Signing Key..." &&
+              openssl genpkey -algorithm RSA -out /certs/signing-key.pem &&
+
+              echo "Generating Signing Certificate Request..." &&
+              openssl req -new -key /certs/signing-key.pem -out /certs/signing.csr -subj "/CN=Documenso Signing Cert" &&
+
+              echo "Signing the Certificate with CA..." &&
+              openssl x509 -req -in /certs/signing.csr -CA /certs/ca-cert.pem -CAkey /certs/ca-key.pem -CAcreateserial -out /certs/signing-cert.pem -days 365 &&
+
+              echo "Creating PKCS#12 (.p12) format file..." &&
+              openssl pkcs12 -export -out /certs/signing-cert.p12 -inkey /certs/signing-key.pem -in /certs/signing-cert.pem -password pass:{{ .Values.documenso.certPassword }} &&
+
+              echo "Setting ownership to documenso:documenso" &&
+              chown -R 1001:1001 /certs
+          volumeMounts:
+            - name: cert-volume
+              mountPath: /certs
+          
       {{- with .Values.documenso.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
