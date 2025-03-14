@@ -3,7 +3,17 @@ entries:
   documenso:
   - apiVersion: v2
     appVersion: v1.8.1
-    created: "2025-03-14T13:04:26.314939+07:00"
+    created: "2025-03-14T13:13:06.883908+07:00"
+    description: A Helm chart Documenso for Kubernetes
+    digest: a8ccc6d2644901545b616790a19bcb86394ff3fcbb3ec1a6e15854cf69c7189a
+    name: documenso
+    type: application
+    urls:
+    - https://rizkyfaza20.github.io/documenso-chart/documenso-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: v1.8.1
+    created: "2025-03-14T13:13:06.881227+07:00"
     description: A Helm chart Documenso for Kubernetes
     digest: 4514ee89866a8342d31717bcd0d6a785001b53269990f50ae066ac14b6ec74c0
     name: documenso
@@ -13,7 +23,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: v1.7.0
-    created: "2025-03-14T13:04:26.314155+07:00"
+    created: "2025-03-14T13:13:06.880594+07:00"
     description: A Helm chart Documenso for Kubernetes
     digest: 28d496479912db6a93007ff9125579e7b2dd0cec1f1fed6a769e422b0b19e1c5
     name: documenso
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://rizkyfaza20.github.io/documenso-chart/documenso-0.0.1.tgz
     version: 0.0.1
-generated: "2025-03-14T13:04:26.311114+07:00"
+generated: "2025-03-14T13:13:06.879147+07:00"
