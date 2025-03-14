@@ -40,6 +40,8 @@ documenso:
     NEXT_PRIVATE_SMTP_PASS: ""
     NEXT_PRIVATE_GOOGLE_CLIENT_ID: ""
     NEXT_PRIVATE_GOOGLE_CLIENT_SECRET: ""
+    NEXT_PRIVATE_SIGNING_LOCAL_FILE_PATH: ""
+
 
   imagePullSecrets: []
   namespaceOverride: "documenso"
