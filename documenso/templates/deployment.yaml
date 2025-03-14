@@ -29,7 +29,7 @@ spec:
 
       initContainers:
         - name: cert-generator
-          image: alpine-latest
+          image: alpine:latest
           command:
             - sh
             - -c
