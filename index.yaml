@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   documenso:
   - apiVersion: v2
+    appVersion: v1.8.1
+    created: "2025-03-14T12:52:14.51857+07:00"
+    description: A Helm chart Documenso for Kubernetes
+    digest: 4514ee89866a8342d31717bcd0d6a785001b53269990f50ae066ac14b6ec74c0
+    name: documenso
+    type: application
+    urls:
+    - documenso-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     appVersion: v1.7.0
-    created: "2024-09-24T12:00:22.786861+07:00"
+    created: "2025-03-14T12:52:14.517921+07:00"
     description: A Helm chart Documenso for Kubernetes
     digest: 28d496479912db6a93007ff9125579e7b2dd0cec1f1fed6a769e422b0b19e1c5
     name: documenso
@@ -11,4 +21,4 @@ entries:
     urls:
     - documenso-0.0.1.tgz
     version: 0.0.1
-generated: "2024-09-24T12:00:22.785739+07:00"
+generated: "2025-03-14T12:52:14.516982+07:00"
