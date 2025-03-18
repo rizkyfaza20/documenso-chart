@@ -3,16 +3,6 @@ entries:
   documenso:
   - apiVersion: v2
     appVersion: v1.8.1
-    created: "2025-03-18T14:43:21.495109+07:00"
-    description: A Helm chart Documenso for Kubernetes
-    digest: 608c045034883026d48c8f061ed533b05f9d7e067ad2ebd6a5fa9f07379c42a1
-    name: documenso
-    type: application
-    urls:
-    - https://rizkyfaza20.github.io/documenso-chart/documenso-0.0.6.tgz
-    version: 0.0.6
-  - apiVersion: v2
-    appVersion: v1.8.1
     created: "2025-03-18T14:43:21.494295+07:00"
     description: A Helm chart Documenso for Kubernetes
     digest: 0508e316312305170c4817705847bddacc252b58f25feba6e957509bc5827dc4
