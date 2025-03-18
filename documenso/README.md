@@ -5,6 +5,7 @@
 A Helm chart Documenso for Kubernetes
 
 ### Disclaimer
+
 I currently still developing this chart, so there must be bugs / error produced while it applied in current Infrastructure. Make sure to follow by regarding from Official Documenso Site. I'm not recommending to install for production use.
 
 ### Step to install.
@@ -132,5 +133,7 @@ helm install documenso documenso-chart/documenso
 | documenso.tolerations | list | `[]` |  |
 | documenso.volumeMounts | list | `[]` |  |
 | documenso.volumes | list | `[]` |  |
+
+To raise an issue, please go to my github chart pages: ![https://github.com/rizkyfaza20/documenso-chart](https://github.com/rizkyfaza20/documenso-chart)
 
 ---
