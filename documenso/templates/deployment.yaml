@@ -89,12 +89,9 @@ spec:
                 name: cm-{{ include "documenso.fullname" . }}-app
       {{- with .Values.documenso.volumes }}
       volumes:
-        {{-if .Values.documenso.persistence.enabled }}
         - name: {{ .Values.documenso.persistence.existingClaims | default (include "documenso.fullname" .) }}
           persistentVolumeClaim:
             claimName: {{ .Values.documenso.persistence.existingClaim | default (include "documenso.fullname" .) }}-pvc
-        {{- end }}
-        {{- if .Values.documenso.certVolume.enabled }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.documenso.nodeSelector }}
