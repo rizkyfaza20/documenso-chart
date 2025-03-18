@@ -90,6 +90,7 @@ documenso:
     storageClass: ""
     accessMode: ReadWriteOnce
     size: 1Gi
+    annotations: []
 
   volumes: []
   # - name: foo

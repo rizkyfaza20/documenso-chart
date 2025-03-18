@@ -1,15 +1,23 @@
-{{- if .Values.documenso.persistence.enabled }}
-{{- end }}
+{{- if .Values.documenso.persistence.enabled -}}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ include "documenso.fullname" . }}-pvc
   labels:
-    app: {{ include "documenso.name" . }}
+    app.kubernetes.io/name: {{ include "documenso.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:
+    {{- range $key, $value := .Values.documenso.persistence.annotations }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
 spec:
-    accessModes:
-        - ReadWriteOnce
-    resources:
-        requests:
-        storage: {{ .Values.documenso.persistence.size }}
-    storageClassName: {{ .Values.documenso.persistence.storageClass }}    
+  accessModes:
+    - {{ .Values.documenso.persistence.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.documenso.persistence.size | quote }}
+  {{- if .Values.documenso.persistence.storageClass }}
+  storageClassName: {{ .Values.documenso.persistence.storageClass | quote }}
+  {{- end }}
+{{- end }}

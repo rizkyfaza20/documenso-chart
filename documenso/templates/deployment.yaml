@@ -78,11 +78,16 @@ spec:
             {{- toYaml .Values.documenso.resources | nindent 12 }}
           {{- with .Values.documenso.volumeMounts }}
           volumeMounts:
-            {{- toYaml .Values.documenso.volumeMounts | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
           {{- end }}
           envFrom:
             - configMapRef:
                 name: cm-{{ include "documenso.fullname" . }}-app
+          volumeMounts:
+            - name: cert-volume
+              mountPath: /certs
+            - name: documenso-storage
+              mountPath: /data
       volumes:
         - name: cert-volume
           emptyDir: {}
