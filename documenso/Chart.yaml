@@ -2,7 +2,7 @@ apiVersion: v2
 name: documenso
 description: A Helm chart Documenso for Kubernetes
 type: application
-version: 0.0.5
+version: 0.0.6
 appVersion: "v1.8.1"
 
 
