@@ -60,3 +60,17 @@ Create the name of the service account to use
 {{- default "default" .Values.documenso.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{- if .Values.documenso.persistence.enabled -}}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: documenso-cert-pvc
+spec:
+  accessModes:
+    - {{ .Values.documenso.persistence.accessMode | default "ReadWriteOnce" }}
+  resources:
+    requests:
+      storage: {{ .Values.documenso.persistence.size }}
+{{- end}}
