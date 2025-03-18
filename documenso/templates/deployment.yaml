@@ -23,10 +23,6 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
-      volumes:
-        - name: cert-volume
-          emptyDir: {}
-
       initContainers:
         - name: cert-generator
           image: alpine:latest
@@ -87,13 +83,14 @@ spec:
           envFrom:
             - configMapRef:
                 name: cm-{{ include "documenso.fullname" . }}-app
-      {{- with .Values.documenso.volumes }}
       volumes:
-        - name: {{ .Values.documenso.persistence.existingClaims | default (include "documenso.fullname" .) }}
+        - name: cert-volume
+          emptyDir: {}
+        {{- if .Values.documenso.persistence.enabled }}
+        - name: documenso-storage
           persistentVolumeClaim:
-            claimName: {{ .Values.documenso.persistence.existingClaim | default (include "documenso.fullname" .) }}-pvc
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+            claimName: {{ include "documenso.fullname" . }}-pvc
+        {{- end }}
       {{- with .Values.documenso.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
