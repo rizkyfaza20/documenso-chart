@@ -5,14 +5,14 @@
 A Helm chart Documenso for Kubernetes
 
 ### Disclaimer
+
 I currently still developing this chart, so there must be bugs / error produced while it applied in current Infrastructure. Make sure to follow by regarding from Official Documenso Site. I'm not recommending to install for production use.
 
 ### Step to install.
 
 1. Initially, Documenso to prepare from start need to create / put certificate, whether from CA in 3rd party. I have put one process in deployment process before documenso deployed by initialize some containers to create self-signed.
 
-```sh
-```sh
+```yaml
 volumes:
         - name: cert-volume
           emptyDir: {}
@@ -46,7 +46,6 @@ volumes:
           volumeMounts:
             - name: cert-volume
               mountPath: /certs
-```
 ```
 
 2. Fill up the Environment variables to set in the Documenso; You can fill up for the rest configuration by yourself, but initially add:
