@@ -1,64 +1,61 @@
-# Documenso Chart
+# (Unofficial) Documenso Helm Chart
+
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/documenso)](https://artifacthub.io/packages/search?repo=documenso)
+
+This repository provides a Helm chart to deploy [Documenso](https://github.com/Documenso/documenso), a modern open-source document signing platform.
 
 ## Prerequisites
-- Ensure you have Helm installed. If not, follow the [Helm installation guide](https://helm.sh/docs/intro/install/).
 
-## Step 1: Update the Helm Chart
-1. Navigate to the chart directory:
-    ```
-    git clone https://github.com/rizkyfaza20/documenso-chart.git
-    cd documenso-chart
-    ```
-2. Open the `Chart.yaml` file and update the version number and other metadata as needed.
+- Kubernetes 1.20+
+- Helm 3.x
+- Persistent storage provisioner (for document storage)
+- (Optional) Ingress Controller (e.g., Nginx)
 
-## Step 2: Modify the Helm Chart
-1. Edit the `values.yaml` file to update the default configuration values.
-2. Modify the templates in the `templates` directory to change the Kubernetes resources as needed.
+## Installation
 
-## Step 3: Package the Helm Chart
-1. Package the chart to create a `.tgz` file:
-    ```sh
-    helm package .
-    ```
+To install the chart using Helm:
 
-## Step 4: Install the Helm Chart
-1. Add the chart repository (if using a remote repository):
-    ```sh
-    helm repo add my-repo https://example.com/charts
-    ```
-2. Update the repository to get the latest charts:
-    ```sh
-    helm repo update
-    ```
-3. Install the chart:
-    ```sh
-    helm install my-release /path/to/documenso-chart-<version>.tgz
-    ```
-    Replace `<version>` with the actual version number of the packaged chart.
+```sh
+helm repo add rizkyfaza20 https://rizkyfaza20.github.io/helm-charts
+helm repo update
+helm install my-documenso rizkyfaza20/documenso-chart
+```
 
-## Step 5: Verify the Installation
-1. Check the status of the release:
-    ```sh
-    helm status my-release
-    ```
-2. Verify the deployed resources in your Kubernetes cluster:
-    ```sh
-    kubectl get all -l release=my-release
-    ```
+## Configuration
 
-## Step 6: Upgrade the Helm Chart (if needed)
-1. Make further modifications to the chart.
-2. Upgrade the release with the updated chart:
-    ```sh
-    helm upgrade my-release /path/to/documenso-chart-<version>.tgz
-    ```
+You can customize the deployment by modifying the `values.yaml` file. To override values, use:
 
-## Step 7: Uninstall the Helm Chart (if needed)
-1. Uninstall the release:
-    ```sh
-    helm uninstall my-release
-    ```
+```sh
+helm install my-documenso rizkyfaza20/documenso-chart --values=my-values.yaml
+```
 
-## Additional Resources
-- [Helm Documentation](https://helm.sh/docs/)
-- [Kubernetes Documentation](https://kubernetes.io/docs/)
+Or override a specific setting:
+
+```sh
+helm install my-documenso rizkyfaza20/documenso-chart --set service.type=LoadBalancer
+``` 
+
+## Upgrading
+
+To upgrade an existing release:
+
+```sh
+helm upgrade my-documenso rizkyfaza20/documenso-chart
+```
+
+## Uninstallation
+
+To remove the Helm release:
+
+```sh
+helm uninstall my-documenso
+```
+
+## Contributing
+
+Feel free to contribute by opening issues or submitting pull requests.
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes and test them
+4. Submit a pull request
